@@ -14,7 +14,6 @@ Group:		Development/Kernel
 Url:		http://www.intel.com/technology/iapc/acpi/downloads.htm
 ExclusiveArch:	%{ix86} x86_64
 BuildRequires:	flex, bison
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 iASL compiles ASL (ACPI Source Language) into AML (ACPI Machine
