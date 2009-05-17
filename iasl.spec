@@ -1,13 +1,13 @@
 %define name	iasl
 %define pkgname	acpica-unix
-%define version 20080213
-%define release %mkrel 2
+%define version 20090422
+%define release %mkrel 1
 
 Summary:	Intel ASL compiler/decompiler
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-Source0:	%{pkgname}-%{version}.tar.bz2
+Source0:	%{pkgname}-%{version}.tar.gz
 License:	ACPICA
 Group:		Development/Kernel
 Url:		http://www.acpica.org/downloads/unix_source_code.php
