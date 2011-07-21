@@ -11,7 +11,7 @@ Source0:	%{pkgname}-%{version}.tar.gz
 License:	ACPICA
 Group:		Development/Kernel
 Url:		http://www.acpica.org/downloads/unix_source_code.php
-ExclusiveArch:	%{ix86} x86_64
+ExclusiveArch:	%{ix86} x86_64 %arm
 BuildRequires:	flex, bison
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
