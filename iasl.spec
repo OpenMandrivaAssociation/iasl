@@ -1,11 +1,11 @@
 %define pkgname	acpica-unix
-%define version 20111123
 
 Summary:	Intel ASL compiler/decompiler
 Name:		iasl
-Version:	%{version}
+Version:	20120420
 Release:	1
 Source0:	%{pkgname}-%{version}.tar.gz
+Patch0:		acpica-20120420-Werror.patch
 License:	ACPICA
 Group:		Development/Kernel
 Url:		http://www.acpica.org/downloads/unix_source_code.php
@@ -19,15 +19,41 @@ firmware. It also can disassemble AML, for debugging purposes.
 
 %prep
 %setup -q -n %{pkgname}-%{version}
+%patch0 -p1 -b .werror~
 
 %build
-make -C compiler
+make -C source/compiler CC="%__cc $RPM_OPT_FLAGS"
+cd source/tools
+for i in *; do
+	[ -d "$i" ] || continue
+	[ "$i" = "examples" ] && continue # No Makefile here
+	cd $i
+	sed -i -e 's,-o $(PROG),-o $(PROG) -lpthread,g' Makefile
+	make CC="%__cc $RPM_OPT_FLAGS"
+	cd ..
+done
+
+# Some time soon, the project will likely switch over to using
+# the versions in generate/unix:
+#make -C generate/unix CC="%__cc $RPM_OPT_FLAGS"
 
 %install
-
 mkdir -p %{buildroot}%{_bindir}
-install -m755 compiler/iasl %{buildroot}%{_bindir}/
+install -m755 source/compiler/iasl %{buildroot}%{_bindir}/
+cd source/tools
+for i in *; do
+	[ -d "$i" ] || continue
+	[ "$i" = "examples" ] && continue # No Makefile here
+	cd $i
+	install -m755 $i %buildroot%_bindir/
+	cd ..
+done
+
+# Some time soon, the project will likely switch over to using
+# the versions in generate/unix:
+#make -C generate/unix install CC="%__cc $RPM_OPT_FLAGS" INSTALLDIR="%buildroot%_bindir"
 
 %files
 %defattr(-,root,root)
-%{_bindir}/iasl
+%_bindir/acpi*
+%_bindir/iasl
