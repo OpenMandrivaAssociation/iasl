@@ -1,7 +1,7 @@
 %define name	iasl
 %define pkgname	acpica-unix
-%define version 20090422
-%define release %mkrel 6
+%define version 20130214
+%define release 1
 
 Summary:	Intel ASL compiler/decompiler
 Name:		%{name}
