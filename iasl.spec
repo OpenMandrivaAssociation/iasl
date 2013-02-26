@@ -24,16 +24,16 @@ firmware. It also can disassemble AML, for debugging purposes.
 %setup -q -n %{pkgname}-%{version}
 
 %build
-make -C compiler
+make iasl
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
-mkdir -p $RPM_BUILD_ROOT%{_bindir}
-install -m755 compiler/iasl $RPM_BUILD_ROOT%{_bindir}/
+mkdir -p %{buildroot}%{_bindir}
+install -m755 source/compiler/iasl %{buildroot}%{_bindir}/
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
