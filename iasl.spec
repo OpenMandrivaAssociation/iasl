@@ -2,6 +2,7 @@
 %define pkgname	acpica-unix
 %define version 20130214
 %define release 1
+%define debug_package          %{nil}
 
 Summary:	Intel ASL compiler/decompiler
 Name:		%{name}
