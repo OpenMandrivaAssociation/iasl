@@ -30,7 +30,7 @@ make iasl
 rm -rf %{buildroot}
 
 mkdir -p %{buildroot}%{_bindir}
-install -m755 source/compiler/iasl %{buildroot}%{_bindir}/
+install -m755 generate/unix/bin*/iasl %{buildroot}%{_bindir}/
 
 %clean
 rm -rf %{buildroot}
