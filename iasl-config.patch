@@ -1,0 +1,12 @@
+diff --git a/generate/unix/Makefile.config b/generate/unix/Makefile.config
+index 65242e0..794d4c8 100644
+--- a/generate/unix/Makefile.config
++++ b/generate/unix/Makefile.config
+@@ -112,7 +112,6 @@ OPT_CFLAGS ?= \
+     $(CWARNINGFLAGS)
+ 
+ CFLAGS += \
+-    $(BITSFLAG)\
+     -D$(HOST)\
+     -D_GNU_SOURCE\
+     -I$(ACPICA_INCLUDE)
