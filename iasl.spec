@@ -4,7 +4,7 @@
 Summary:	Intel ASL compiler/decompiler
 Name:		iasl
 Version:	20130328
-Release:	6
+Release:	7
 License:	ACPICA
 Group:		Development/Kernel
 Url:		http://www.acpica.org/downloads/unix_source_code.php
