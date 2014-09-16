@@ -1,2 +1,4 @@
+removed_sources:
+  acpica-unix-20130328.tar.gz: 14fe5b85192ba2b935fb34f4ece3ad627f337924
 sources:
-  "acpica-unix-20130328.tar.gz": 14fe5b85192ba2b935fb34f4ece3ad627f337924
+  acpica-unix-20140828.tar.gz: ed64de1aad99be652220a6d14b6b3d6793df00bd

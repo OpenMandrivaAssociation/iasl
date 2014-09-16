@@ -3,17 +3,12 @@
 
 Summary:	Intel ASL compiler/decompiler
 Name:		iasl
-Version:	20130328
+Version:	20140828
 Release:	7
 License:	ACPICA
 Group:		Development/Kernel
 Url:		http://www.acpica.org/downloads/unix_source_code.php
 Source0:	%{pkgname}-%{version}.tar.gz
-# Configure.  See top of patch for details.
-Patch0:         iasl-config.patch
-#Patch1:         debian-big_endian.patch
-#Patch2:         debian-unaligned.patch
-Patch3:         iasl-signed-char.patch
 
 ExclusiveArch:	%{ix86} x86_64 %arm
 BuildRequires:	bison
@@ -26,7 +21,6 @@ firmware. It also can disassemble AML, for debugging purposes.
 
 %prep
 %setup -qn %{pkgname}-%{version}
-%apply_patches
 
 %build
 make iasl
